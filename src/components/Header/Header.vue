@@ -1,9 +1,4 @@
 <script setup>
-import {Avatar, Button, Popover} from "primevue";
-import useRegistrationStore from "../../store/useRegistrationStore.js";
-import {ref} from "vue";
-import router from "../../router.js";
-import {storeToRefs} from "pinia";
 
 </script>
 

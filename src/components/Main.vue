@@ -2,6 +2,7 @@
 import PairTable from "./PairTable/PairTable.vue";
 import ProbabilityTable from "./ProbabilityTable/ProbabilityTable.vue";
 import StatisticsTable from "./StatisticsTable/StatisticsTable.vue";
+import RaceVisualization from "./RaceVisualization/RaceVisualization.vue";
 
 Echo.channel('onlineRace')
     .listen('OnlineRace', (e) => {
@@ -15,6 +16,7 @@ Echo.channel('onlineRace')
     <ProbabilityTable />
     <PairTable />
     <StatisticsTable />
+    <RaceVisualization />
   </div>
 </template>
 
