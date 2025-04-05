@@ -5,7 +5,7 @@ import Header from "./components/Header/Header.vue";
 
 <template>
   <Header />
-  <div class="flex flex-col items-center justify-center h-full">
+  <div class="flex flex-col items-center h-full pt-[40px]">
     <RouterView />
   </div>
 </template>
