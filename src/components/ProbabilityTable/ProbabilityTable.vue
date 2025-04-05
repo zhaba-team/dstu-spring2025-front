@@ -1,44 +1,16 @@
 <script setup>
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
+import {watch} from "vue";
 
-const probabilities = [
-  {
-    id: '1000',
-    color: '#4287f5',
-    first: 0.5,
-    second: 0.2,
-    third: 0.8,
-    fourth: 65,
-    fifth: 0.1,
-    sixth: 0.9,
-    topTwo: 0.7,
-    topThree: 5
-  },
-  {
-    id: '1000',
-    color: '#f54242',
-    first: 0.2,
-    second: 0.2,
-    third: 0.8,
-    fourth: 65,
-    fifth: 0.1,
-    sixth: 0.9,
-    topTwo: 0.7,
-    topThree: 5
-  },
-  {
-    id: '1000',
-    color: '#f5a442',
-    first: 0.2,
-    second: 0.2,
-    third: 0.8,
-    fourth: 65,
-    fifth: 0.1,
-    sixth: 0.9,
-    topTwo: 0.7,
-    topThree: 5
-  }];
+const props = defineProps({
+  data: Array
+})
+
+watch(() => props.data, (newVal) => {
+  console.log('Новые данные пришли!', newVal)
+}, { immediate: true })
+
 </script>
 
 <template>
@@ -47,8 +19,9 @@ const probabilities = [
       Таблица
       вероятности
     </h1>
-    <DataTable :value="probabilities" tableStyle="min-width: 45rem; text-align: center; border: 1px solid #4b5563; border-radius: 12px; overflow: hidden;"
-    >
+    <DataTable
+        :value="data"
+        tableStyle="min-width: 45rem; text-align: center; border: 1px solid #4b5563; border-radius: 12px; overflow: hidden;">
       <Column field="color" header="">
         <template #body="slotProps">
           <svg width="35" height="35" viewBox="0 0 95 95" xmlns="http://www.w3.org/2000/svg">
@@ -56,12 +29,12 @@ const probabilities = [
           </svg>
         </template>
       </Column>
-      <Column field="first" header="1"></Column>
-      <Column field="second" header="2"></Column>
-      <Column field="third" header="3"></Column>
-      <Column field="fourth" header="4"></Column>
-      <Column field="fifth" header="5"></Column>
-      <Column field="sixth" header="6"></Column>
+      <Column field="1" header="1"></Column>
+      <Column field="2" header="2"></Column>
+      <Column field="3" header="3"></Column>
+      <Column field="4" header="4"></Column>
+      <Column field="5" header="5"></Column>
+      <Column field="6" header="6"></Column>
       <Column field="topTwo" header="ТОП-2"></Column>
       <Column field="topThree" header="ТОП-3"></Column>
     </DataTable>

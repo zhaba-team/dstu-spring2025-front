@@ -5,8 +5,8 @@ const places = [
   {
     id: '1',
     name: 'first',
-    number: 1,
-    racers: [
+    place: 1,
+    members: [
       {
         id: 1,
         color: '#f54242'
@@ -36,8 +36,8 @@ const places = [
   {
     id: '2',
     name: 'second',
-    number: 2,
-    racers: [
+    place: 2,
+    members: [
       {
         id: 1,
         color: '#f54242'
@@ -67,8 +67,101 @@ const places = [
   {
     id: '3',
     name: 'third',
-    number: 3,
-    racers: [
+    place: 3,
+    members: [
+      {
+        id: 1,
+        color: '#f54242'
+      },
+      {
+        id: 2,
+        color: '#57f542'
+      },
+      {
+        id: 3,
+        color: '#f5ce42',
+      },
+      {
+        id: 4,
+        color: '#4245f5',
+      },
+      {
+        id: 5,
+        color: '#ec42f5',
+      },
+      {
+        id: 6,
+        color: '#42adf5',
+      },
+    ]
+  },
+  {
+    id: '3',
+    name: 'third',
+    place: 3,
+    members: [
+      {
+        id: 1,
+        color: '#f54242'
+      },
+      {
+        id: 2,
+        color: '#57f542'
+      },
+      {
+        id: 3,
+        color: '#f5ce42',
+      },
+      {
+        id: 4,
+        color: '#4245f5',
+      },
+      {
+        id: 5,
+        color: '#ec42f5',
+      },
+      {
+        id: 6,
+        color: '#42adf5',
+      },
+    ]
+  },
+  {
+    id: '3',
+    name: 'third',
+    place: 3,
+    members: [
+      {
+        id: 1,
+        color: '#f54242'
+      },
+      {
+        id: 2,
+        color: '#57f542'
+      },
+      {
+        id: 3,
+        color: '#f5ce42',
+      },
+      {
+        id: 4,
+        color: '#4245f5',
+      },
+      {
+        id: 5,
+        color: '#ec42f5',
+      },
+      {
+        id: 6,
+        color: '#42adf5',
+      },
+    ]
+  },
+  {
+    id: '3',
+    name: 'third',
+    place: 3,
+    members: [
       {
         id: 1,
         color: '#f54242'
@@ -104,8 +197,8 @@ const places = [
     <table class="table">
       <tbody>
       <tr v-for="(row, rowIndex) in places" :key="rowIndex">
-        <td>{{ row.number }}</td>
-        <td v-for="(racer, colIndex) in row.racers" :key="colIndex">
+        <td>{{ row.place }}</td>
+        <td v-for="(racer, colIndex) in row.members" :key="colIndex">
           <div class="racer-color">
             <shirt :color="racer.color"/>
           </div>
