@@ -1,8 +1,9 @@
 <script setup>
+import PairTable from "./PairTable/PairTable.vue";
 </script>
 
 <template>
-  <div>Hello</div>
+  <PairTable />
 </template>
 
 <style scoped>
