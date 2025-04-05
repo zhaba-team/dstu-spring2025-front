@@ -13,10 +13,14 @@ Echo.channel('onlineRace')
 
 <template>
   <div class="dashboard">
-    <ProbabilityTable />
-    <PairTable />
-    <StatisticsTable />
-    <RaceVisualization />
+    <div class="flex justify-between gap-6">
+      <StatisticsTable />
+      <ProbabilityTable />
+    </div>
+    <div class="flex justify-between gap-6">
+      <PairTable />
+      <RaceVisualization />
+    </div>
   </div>
 </template>
 
@@ -24,6 +28,7 @@ Echo.channel('onlineRace')
 .dashboard {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  width: 100%;
+  gap: 30px;
 }
 </style>

@@ -118,22 +118,30 @@ const places = [
 
 <style scoped>
 .table-wrapper {
-  padding: 20px 0;
+  padding: 0;
+  width: 100%;
 }
 
 .table {
   width: 100%;
-  border-collapse: collapse;
-  border-radius: 10px;
-  overflow: hidden;
+  border-collapse: unset;
+  border-radius: 12px;
+  border: 1px solid #4b5563;
+  height: 100%;
 }
 
 .table th,
 .table td {
   padding: 15px;
-  background: #2e2e2e;
   text-align: center;
-  border-top: 1px solid #494949;
+}
+
+.table tr {
+  border-bottom: 1px solid #494949;
+}
+
+.table tr:last-child {
+  border-bottom: none;
 }
 
 .table th {
