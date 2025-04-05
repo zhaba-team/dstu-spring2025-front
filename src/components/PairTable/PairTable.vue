@@ -116,7 +116,7 @@ const columns = ref(
       занятия 1-го и 2-го
       мест
     </h1>
-    <DataTable :value="products" tableStyle="min-width: 60rem">
+    <DataTable :value="products" tableStyle="min-width: 60rem; border-radius: 12px; overflow: hidden;">
       <Column v-for="item of columns" :field="item.columnKey">
         <template #header>
           <svg v-if="item.shirtColor !== 'none'" width="40" height="40" viewBox="0 0 95 95" xmlns="http://www.w3.org/2000/svg">

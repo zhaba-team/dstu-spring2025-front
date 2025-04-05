@@ -47,7 +47,8 @@ const probabilities = [
       Таблица
       вероятности
     </h1>
-    <DataTable :value="probabilities" tableStyle="min-width: 60rem">
+    <DataTable :value="probabilities" tableStyle="min-width: 60rem; border-radius: 12px; overflow: hidden;"
+    >
       <Column field="color" header="">
         <template #body="slotProps">
           <svg width="40" height="40" viewBox="0 0 95 95" xmlns="http://www.w3.org/2000/svg">
