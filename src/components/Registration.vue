@@ -6,6 +6,7 @@ import {RouterLink} from "vue-router";
 import useRegistrationStore from "../store/useRegistrationStore.js";
 import router from "../router.js";
 
+
 const user = ref({
   name: "",
   email: "",
@@ -30,6 +31,14 @@ const roles = ref([]);
 onMounted(async () => {
   roles.value = await registration.getRoles();
 })
+
+const orderId = 1
+
+
+Echo.channel(`onlineRace`)
+    .listen('OnlineRace', (e) => {
+      console.log(e);
+    });
 </script>
 
 <template>
