@@ -30,7 +30,7 @@ const products = [
     вероятности
     занятия 1го и 2го
     мест</h1>
-  <DataTable :value="products" tableStyle="min-width: 60rem; border-radius: 20px">
+  <DataTable :value="products" tableStyle="min-width: 60rem">
     <Column field="color" header=""></Column>
     <Column field="chanceWithRed" header="red"></Column>
     <Column field="chanceWithBlue" header="blue"></Column>
