@@ -4,10 +4,16 @@ import ProbabilityTable from "./ProbabilityTable/ProbabilityTable.vue";
 </script>
 
 <template>
-  <ProbabilityTable />
-  <PairTable />
+  <div class="dashboard">
+    <ProbabilityTable />
+    <PairTable />
+  </div>
 </template>
 
 <style scoped>
-
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
 </style>
