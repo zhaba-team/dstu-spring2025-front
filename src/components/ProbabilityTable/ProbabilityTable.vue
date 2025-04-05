@@ -12,8 +12,8 @@ const probabilities = [
     fourth: 65,
     fifth: 'Accessories',
     sixth: '',
-    topOne: 'INSTOCK',
-    topTwo: 5
+    topTwo: 'INSTOCK',
+    topThree: 5
   },
   {
     id: '1000',
@@ -24,8 +24,8 @@ const probabilities = [
     fourth: 65,
     fifth: 'Accessories',
     sixth: '',
-    topOne: 'INSTOCK',
-    topTwo: 5
+    topTwo: 'INSTOCK',
+    topThree: 5
   },
   {
     id: '1000',
@@ -36,8 +36,8 @@ const probabilities = [
     fourth: 65,
     fifth: 'Accessories',
     sixth: '',
-    topOne: 'INSTOCK',
-    topTwo: 5
+    topTwo: 'INSTOCK',
+    topThree: 5
   }];
 </script>
 
@@ -62,8 +62,8 @@ const probabilities = [
       <Column field="fourth" header="4"></Column>
       <Column field="fifth" header="5"></Column>
       <Column field="sixth" header="6"></Column>
-      <Column field="topOne" header="ТОП-1"></Column>
       <Column field="topTwo" header="ТОП-2"></Column>
+      <Column field="topThree" header="ТОП-3"></Column>
     </DataTable>
   </div>
 </template>
