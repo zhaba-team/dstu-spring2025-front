@@ -2,6 +2,12 @@
 import PairTable from "./PairTable/PairTable.vue";
 import ProbabilityTable from "./ProbabilityTable/ProbabilityTable.vue";
 import StatisticsTable from "./StatisticsTable/StatisticsTable.vue";
+
+Echo.channel('onlineRace')
+    .listen('OnlineRace', (e) => {
+      console.log(e);
+    });
+
 </script>
 
 <template>
