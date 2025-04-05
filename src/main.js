@@ -15,9 +15,6 @@ app.use(pinia);
 app.use(ToastService);
 
 const myPreset = definePreset(Aura, {
-    conmponents: {
-
-    },
     semantic: {
         primary: {
             50: '{indigo.50}',
