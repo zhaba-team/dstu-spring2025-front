@@ -1,5 +1,6 @@
 <script setup>
 import DataTable from 'primevue/datatable';
+import {ProgressSpinner} from "primevue";
 import Column from 'primevue/column';
 import {watch} from "vue";
 
@@ -14,7 +15,7 @@ watch(() => props.data, (newVal) => {
 </script>
 
 <template>
-  <div class="table-wrapper">
+  <div v-if="data" class="table-wrapper">
     <h1>
       Таблица
       вероятности
@@ -38,6 +39,9 @@ watch(() => props.data, (newVal) => {
       <Column field="topTwo" header="ТОП-2"></Column>
       <Column field="topThree" header="ТОП-3"></Column>
     </DataTable>
+  </div>
+  <div class="min-w-[45rem] flex justify-center items-center" v-else>
+    <ProgressSpinner style="fill: #ffffff" />
   </div>
 </template>
 

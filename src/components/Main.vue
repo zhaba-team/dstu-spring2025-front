@@ -6,15 +6,16 @@ import RaceVisualization from "./RaceVisualization/RaceVisualization.vue";
 import axiosClient from "../axios/axiosClient.js";
 import {onMounted, ref} from "vue";
 
-Echo.channel('onlineRace')
-    .listen('OnlineRace', (e) => {
-      console.log(e);
-    });
+// Echo.channel('onlineRace')
+//     .listen('OnlineRace', (e) => {
+//       console.log(e);
+//     });
 
-const statisticData = ref([]);
+const statisticData = ref({});
 
 const getData = async () => {
   const {data} = await axiosClient.get('/statistics')
+  console.log(data)
   statisticData.value = data;
 }
 
@@ -28,7 +29,7 @@ onMounted(async () => {
   <div class="dashboard">
     <div class="flex justify-between gap-6">
       <StatisticsTable />
-      <ProbabilityTable :data="statisticData" />
+      <ProbabilityTable :data="statisticData.single_probabilities" />
     </div>
     <div class="flex justify-between gap-6">
       <PairTable />
