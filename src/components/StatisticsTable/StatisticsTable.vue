@@ -47,6 +47,7 @@ const props = defineProps({
 }
 
 .table-container {
+  width: 565px;
   overflow-x: auto;
 }
 
