@@ -7,6 +7,11 @@ import axiosClient from "../axios/axiosClient.js";
 import {onMounted, ref} from "vue";
 
 const statisticData = ref({});
+const colors = ref([{
+  id: '1',
+  shirtColor: 'none',
+  columnKey: 'color'
+}]);
 const raceInfo = ref(null);
 const tablesInfo = ref(null);
 
@@ -16,13 +21,25 @@ const getData = async () => {
   statisticData.value = data;
 };
 
+const getChars = async () => {
+  const { data } = await axiosClient.get('/characteristics');
+   let tmp = data.map((item) => {
+    return {
+      id: item.number,
+      shirtColor: item.color,
+      columnKey: item.number
+    }
+  })
+  colors.value = colors.value.concat(tmp)
+};
+
 onMounted(async () => {
   await getData();
+  await getChars();
 });
 
 Echo.channel('onlineRace')
     .listen('OnlineRace', (e) => {
-      // console.log('Race Update:', e);
       raceInfo.value = e.raceInformation;
     });
 
@@ -40,7 +57,7 @@ Echo.channel('updateStatistic')
       <ProbabilityTable :liveData="tablesInfo?.single_probabilities" :data="statisticData.single_probabilities" />
     </div>
     <div class="flex justify-between gap-6">
-      <PairTable :liveData="tablesInfo?.pair_probabilities" :data="statisticData.pair_probabilities" />
+      <PairTable :liveData="tablesInfo?.pair_probabilities" :data="statisticData.pair_probabilities" :colors="colors" />
       <RaceVisualization :data="raceInfo" />
     </div>
   </div>
