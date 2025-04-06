@@ -41,7 +41,7 @@ watch(() => props.data, (newVal) => {
     </DataTable>
   </div>
   <div class="min-w-[45rem] flex justify-center items-center" v-else>
-    <ProgressSpinner style="fill: #ffffff" />
+    <ProgressSpinner />
   </div>
 </template>
 

@@ -6,10 +6,10 @@ import RaceVisualization from "./RaceVisualization/RaceVisualization.vue";
 import axiosClient from "../axios/axiosClient.js";
 import {onMounted, ref} from "vue";
 
-// Echo.channel('onlineRace')
-//     .listen('OnlineRace', (e) => {
-//       console.log(e);
-//     });
+Echo.channel('onlineRace')
+    .listen('OnlineRace', (e) => {
+      console.log(e);
+    });
 
 const statisticData = ref({});
 
