@@ -36,7 +36,7 @@ Echo.channel('updateStatistic')
 <template>
   <div class="dashboard">
     <div class="flex justify-between gap-6">
-      <StatisticsTable />
+      <StatisticsTable :data="statisticData.places_order" />
       <ProbabilityTable :liveData="tablesInfo?.single_probabilities" :data="statisticData.single_probabilities" />
     </div>
     <div class="flex justify-between gap-6">

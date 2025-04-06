@@ -11,7 +11,7 @@ const props = defineProps({
 
 watch(() => props.data, (newVal) => {
   console.log('Новые данные пришли!', newVal)
-}, { immediate: true })
+}, {immediate: true})
 
 </script>
 
@@ -23,7 +23,7 @@ watch(() => props.data, (newVal) => {
     </h1>
     <DataTable
         :value="liveData ? liveData : data"
-        tableStyle="min-width: 45rem; text-align: center; border: 1px solid #4b5563; border-radius: 12px; overflow: hidden;">
+        tableStyle="min-width: 39rem; text-align: center; border: 1px solid #4b5563; border-radius: 12px; overflow: hidden;">
       <Column field="color" header="">
         <template #body="slotProps">
           <svg width="35" height="35" viewBox="0 0 95 95" xmlns="http://www.w3.org/2000/svg">

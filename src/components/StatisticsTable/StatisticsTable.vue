@@ -1,218 +1,54 @@
 <script setup>
 import Shirt from "../icons/Shirt.vue";
+import {ref} from "vue";
+import Line from "../Diagrams/Line.vue";
+import ToggleSwitch from 'primevue/toggleswitch';
 
-const places = [
-  {
-    id: '1',
-    name: 'first',
-    place: 1,
-    members: [
-      {
-        id: 1,
-        color: '#f54242'
-      },
-      {
-        id: 2,
-        color: '#57f542'
-      },
-      {
-        id: 3,
-        color: '#f5ce42',
-      },
-      {
-        id: 4,
-        color: '#4245f5',
-      },
-      {
-        id: 5,
-        color: '#ec42f5',
-      },
-      {
-        id: 6,
-        color: '#42adf5',
-      }
-    ]
-  },
-  {
-    id: '2',
-    name: 'second',
-    place: 2,
-    members: [
-      {
-        id: 1,
-        color: '#f54242'
-      },
-      {
-        id: 2,
-        color: '#57f542'
-      },
-      {
-        id: 3,
-        color: '#f5ce42',
-      },
-      {
-        id: 4,
-        color: '#4245f5',
-      },
-      {
-        id: 5,
-        color: '#ec42f5',
-      },
-      {
-        id: 6,
-        color: '#42adf5',
-      }
-    ]
-  },
-  {
-    id: '3',
-    name: 'third',
-    place: 3,
-    members: [
-      {
-        id: 1,
-        color: '#f54242'
-      },
-      {
-        id: 2,
-        color: '#57f542'
-      },
-      {
-        id: 3,
-        color: '#f5ce42',
-      },
-      {
-        id: 4,
-        color: '#4245f5',
-      },
-      {
-        id: 5,
-        color: '#ec42f5',
-      },
-      {
-        id: 6,
-        color: '#42adf5',
-      },
-    ]
-  },
-  {
-    id: '3',
-    name: 'third',
-    place: 3,
-    members: [
-      {
-        id: 1,
-        color: '#f54242'
-      },
-      {
-        id: 2,
-        color: '#57f542'
-      },
-      {
-        id: 3,
-        color: '#f5ce42',
-      },
-      {
-        id: 4,
-        color: '#4245f5',
-      },
-      {
-        id: 5,
-        color: '#ec42f5',
-      },
-      {
-        id: 6,
-        color: '#42adf5',
-      },
-    ]
-  },
-  {
-    id: '3',
-    name: 'third',
-    place: 3,
-    members: [
-      {
-        id: 1,
-        color: '#f54242'
-      },
-      {
-        id: 2,
-        color: '#57f542'
-      },
-      {
-        id: 3,
-        color: '#f5ce42',
-      },
-      {
-        id: 4,
-        color: '#4245f5',
-      },
-      {
-        id: 5,
-        color: '#ec42f5',
-      },
-      {
-        id: 6,
-        color: '#42adf5',
-      },
-    ]
-  },
-  {
-    id: '3',
-    name: 'third',
-    place: 3,
-    members: [
-      {
-        id: 1,
-        color: '#f54242'
-      },
-      {
-        id: 2,
-        color: '#57f542'
-      },
-      {
-        id: 3,
-        color: '#f5ce42',
-      },
-      {
-        id: 4,
-        color: '#4245f5',
-      },
-      {
-        id: 5,
-        color: '#ec42f5',
-      },
-      {
-        id: 6,
-        color: '#42adf5',
-      },
-    ]
-  }
-];
+const firstView = ref(true);
+
+function toggleView() {
+  firstView.value = !firstView.value
+}
+
+const props = defineProps({
+  data: Array
+})
 </script>
 
 <template>
   <div class="table-wrapper">
-    <h1>Статистика</h1>
-    <table class="table">
-      <tbody>
-      <tr v-for="(row, rowIndex) in places" :key="rowIndex">
-        <td>{{ row.place }}</td>
-        <td v-for="(racer, colIndex) in row.members" :key="colIndex">
-          <div class="racer-color">
-            <shirt :color="racer.color"/>
-          </div>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+    <div class="w-full flex justify-between">
+      <h1>Статистика</h1>
+      <ToggleSwitch @click="toggleView"/>
+    </div>
+    <div class="table-container">
+      <table class="table" v-if="firstView">
+        <tbody>
+        <tr v-for="(row, rowIndex) in props.data" :key="rowIndex">
+          <td>{{ row.place }}</td>
+          <td v-for="(racer, colIndex) in row.members" :key="colIndex">
+            <div class="racer-color">
+              <shirt :color="racer.color"/>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <Line :places="props.data" v-else/>
+    </div>
   </div>
 </template>
+
 
 <style scoped>
 .table-wrapper {
   padding: 0;
   width: 100%;
+}
+
+.table-container {
+  width: 565px;
+  overflow-x: auto;
 }
 
 .table {
@@ -221,6 +57,7 @@ const places = [
   border-radius: 12px;
   border: 1px solid #4b5563;
   height: 100%;
+  white-space: nowrap;
 }
 
 .table th,
