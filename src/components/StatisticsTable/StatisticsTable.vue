@@ -15,7 +15,6 @@ const props = defineProps({
   liveData: Array
 })
 
-const data = props.liveData ? props.liveData : props.data
 </script>
 
 <template>
@@ -27,7 +26,7 @@ const data = props.liveData ? props.liveData : props.data
     <div class="table-container">
       <table class="table" v-if="firstView">
         <tbody>
-        <tr v-for="(row, rowIndex) in data" :key="rowIndex">
+        <tr v-for="(row, rowIndex) in props.liveData ? props.liveData : props.data" :key="rowIndex">
           <td>{{ row.place }}</td>
           <td v-for="(racer, colIndex) in row.members" :key="colIndex">
             <div class="racer-color">
@@ -37,7 +36,7 @@ const data = props.liveData ? props.liveData : props.data
         </tr>
         </tbody>
       </table>
-      <Line :places="data" v-else/>
+      <Line :places="props.liveData ? props.liveData : props.data" v-else/>
     </div>
   </div>
 </template>
