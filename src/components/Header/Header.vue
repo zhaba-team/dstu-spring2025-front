@@ -4,7 +4,7 @@ import Button from "primevue/button";
 import Dialog from 'primevue/dialog';
 import axiosClient from "../../axios/axiosClient.js";
 
-const visible = ref(true);
+const visible = ref(false);
 
 const characteristics = ref({});
 

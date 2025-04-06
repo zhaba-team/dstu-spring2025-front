@@ -1,7 +1,7 @@
 <script setup>
 import Shirt from "../icons/Shirt.vue";
 import {ref} from "vue";
-import Line from "../Diagrams/Line.vue";
+// import Line from "../Diagrams/Line.vue";
 import ToggleSwitch from 'primevue/toggleswitch';
 
 const firstView = ref(true);

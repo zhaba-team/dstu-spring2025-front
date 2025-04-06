@@ -40,7 +40,7 @@ Echo.channel('updateStatistic')
       <ProbabilityTable :liveData="tablesInfo?.single_probabilities" :data="statisticData.single_probabilities" />
     </div>
     <div class="flex justify-between gap-6">
-      <PairTable :liveData="tablesInfo?.single_probabilities" :data="statisticData.pair_probabilities" />
+      <PairTable :liveData="tablesInfo?.pair_probabilities" :data="statisticData.pair_probabilities" />
       <RaceVisualization :data="raceInfo" />
     </div>
   </div>
