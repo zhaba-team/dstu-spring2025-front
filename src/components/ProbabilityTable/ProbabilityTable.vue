@@ -5,7 +5,8 @@ import Column from 'primevue/column';
 import {watch} from "vue";
 
 const props = defineProps({
-  data: Array
+  data: Array,
+  liveData: Array
 })
 
 watch(() => props.data, (newVal) => {
@@ -21,7 +22,7 @@ watch(() => props.data, (newVal) => {
       вероятности
     </h1>
     <DataTable
-        :value="data"
+        :value="liveData ? liveData : data"
         tableStyle="min-width: 45rem; text-align: center; border: 1px solid #4b5563; border-radius: 12px; overflow: hidden;">
       <Column field="color" header="">
         <template #body="slotProps">
@@ -40,7 +41,7 @@ watch(() => props.data, (newVal) => {
       <Column field="topThree" header="ТОП-3"></Column>
     </DataTable>
   </div>
-  <div class="min-w-[45rem] flex justify-center items-center" v-else>
+  <div class="min-w-[45rem] h-full flex justify-center items-center" v-else>
     <ProgressSpinner />
   </div>
 </template>
