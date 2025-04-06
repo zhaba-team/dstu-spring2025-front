@@ -1,6 +1,6 @@
 <script setup>
 import Shirt from "../icons/Shirt.vue";
-import {ref} from "vue";
+import {ref, watch} from "vue";
 
 const firstView = ref(true);
 
@@ -12,6 +12,10 @@ const props = defineProps({
   data: Array,
   liveData: Array
 })
+
+watch(() => props.data, (newVal) => {
+  console.log('Новые данные пришли!', newVal)
+}, {immediate: true})
 
 </script>
 
