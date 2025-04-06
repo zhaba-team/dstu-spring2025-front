@@ -1,8 +1,6 @@
 <script setup>
 import Shirt from "../icons/Shirt.vue";
 import {ref} from "vue";
-// import Line from "../Diagrams/Line.vue";
-import ToggleSwitch from 'primevue/toggleswitch';
 
 const firstView = ref(true);
 
@@ -21,7 +19,6 @@ const props = defineProps({
   <div class="table-wrapper">
     <div class="w-full flex justify-between">
       <h1>Статистика</h1>
-      <ToggleSwitch @click="toggleView"/>
     </div>
     <div class="table-container">
       <table class="table" v-if="firstView">
@@ -36,7 +33,6 @@ const props = defineProps({
         </tr>
         </tbody>
       </table>
-      <Line :places="props.liveData ? props.liveData : props.data" v-else/>
     </div>
   </div>
 </template>
