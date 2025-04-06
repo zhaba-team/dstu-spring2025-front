@@ -47,7 +47,7 @@ const MyPreset = definePreset(Aura, {
                     600: '{slate.600}',
                     700: '{slate.700}',
                     800: '#494949',
-                    900: 'transparent',
+                    900: '#252525',
                     950: '{slate.950}'
                 }
             }

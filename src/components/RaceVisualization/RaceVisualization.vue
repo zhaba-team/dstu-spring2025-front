@@ -58,7 +58,7 @@ function getStyle(color) {
 <style scoped>
 
 .raceBlock {
-  @apply border-gray-600 border p-5 rounded-xl flex flex-col justify-between gap-6 w-full h-full
+  @apply border-gray-600 bg-[#252525] border p-5 rounded-xl flex flex-col justify-between gap-6 w-full h-full
 }
 
 :deep(.p-progressbar .p-progressbar-value) {
