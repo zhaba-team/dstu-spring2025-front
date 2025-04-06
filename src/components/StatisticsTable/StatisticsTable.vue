@@ -11,8 +11,11 @@ function toggleView() {
 }
 
 const props = defineProps({
-  data: Array
+  data: Array,
+  liveData: Array
 })
+
+const data = props.liveData ? props.liveData : props.data
 </script>
 
 <template>
@@ -24,7 +27,7 @@ const props = defineProps({
     <div class="table-container">
       <table class="table" v-if="firstView">
         <tbody>
-        <tr v-for="(row, rowIndex) in props.data" :key="rowIndex">
+        <tr v-for="(row, rowIndex) in data" :key="rowIndex">
           <td>{{ row.place }}</td>
           <td v-for="(racer, colIndex) in row.members" :key="colIndex">
             <div class="racer-color">
@@ -34,7 +37,7 @@ const props = defineProps({
         </tr>
         </tbody>
       </table>
-      <Line :places="props.data" v-else/>
+      <Line :places="data" v-else/>
     </div>
   </div>
 </template>
@@ -48,16 +51,18 @@ const props = defineProps({
 
 .table-container {
   width: 565px;
+  height: 100%;
   overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid #4b5563;
 }
 
 .table {
   width: 100%;
   border-collapse: unset;
-  border-radius: 12px;
-  border: 1px solid #4b5563;
   height: 100%;
   white-space: nowrap;
+  background: #252525;
 }
 
 .table th,
@@ -80,8 +85,8 @@ const props = defineProps({
 }
 
 .racer-color {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
